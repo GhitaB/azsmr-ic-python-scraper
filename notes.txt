@@ -1,0 +1,4 @@
+$ virtualenv .
+$ ./bin/pip install zc.buildout
+$ ./bin/buildout
+$ ./bin/azsmr_scraper
