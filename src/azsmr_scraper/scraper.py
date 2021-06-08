@@ -34,8 +34,18 @@ def get_content(url):
 
     filename = audio.split("?")[0].split("/")[-1]
     audio_file = download_file(audio, filename)
-
     print("Download: " + audio_file)
+
+    filename_base = filename.split(".mp3")[0]
+
+    filename_png = filename_base + ".png"
+    png_file = download_file("https://www.azsmr.ro/media/imnuri-crestine/partituri/" + filename_png, filename_png)
+    print("Download: " + png_file)
+
+    filename_txt = filename_base + ".txt"
+    with open("results/" + filename_txt, 'w') as f:
+        f.write(soup.find_all("div", class_="vers")[0].text)
+    print("Download: " + filename_txt)
 
 
 def get_pages_b(url):
