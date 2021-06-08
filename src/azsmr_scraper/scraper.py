@@ -12,7 +12,7 @@ def download_file(url, to_file):
     user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"
     headers = {'User-Agent': user_agent}
     with requests.get(url, headers=headers, stream=True) as r:
-        with open(to_file, 'wb') as f:
+        with open("results/" +  to_file, 'wb') as f:
             shutil.copyfileobj(r.raw, f)
 
     return to_file
@@ -32,10 +32,10 @@ def get_content(url):
 
     audio = "https://www.azsmr.ro" + soup.find_all("audio")[0].find_all("source")[0].attrs["src"]
 
-    filename = "aaaa.mp3"
+    filename = audio.split("?")[0].split("/")[-1]
     audio_file = download_file(audio, filename)
-    breakpoint()
-    print(url)
+
+    print("Download: " + audio_file)
 
 
 def get_pages_b(url):
@@ -55,7 +55,7 @@ def main():
     # Example: http://www.azsmr.ro/imnuri-crestine/pagina/5
     print("Level A. Start!")
     url = "http://www.azsmr.ro/imnuri-crestine/pagina/"
-    pages_a = 2
+    pages_a = 17
 
     # LEVEL B
     # Example: https://www.azsmr.ro/5-cer-si-mare-si-pamant/
