@@ -1,4 +1,7 @@
 $ virtualenv .
 $ ./bin/pip install zc.buildout
+$ ./bin/pip install urllib3
+$ ./bin/pip install requests
 $ ./bin/buildout
 $ ./bin/azsmr_scraper
+
