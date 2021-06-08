@@ -1,2 +1,2 @@
 # azsmr-ic-python-scraper
-Download texts and images
+Download audio, texts and images
